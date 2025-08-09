@@ -1,0 +1,396 @@
+/* ===== スムーズスクロール ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== ベース ===== */
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+main {
+  padding-top: 0;  /* スライダーを main の外に出すので不要 */
+}
+
+section {
+  scroll-margin-top: 70px; /* ヘッダー分ずらす */
+  padding: 80px 20px;
+  min-height: 100vh;
+  background: #e0f7fa;
+}
+
+section:nth-child(even) {
+  background: #b2ebf2;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-top: 0;
+}
+
+/* ===== TOP ===== */
+
+.catchphrase {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.8;
+  color: #000;
+}
+
+.catchphrase p {
+  margin: 24px 0; /* 上下マージン統一 */
+}
+
+.boss {
+  color: red;
+  font-weight: bold;
+  font-size: 3rem;
+  text-decoration: underline;
+  font-family: 'Georgia', serif; /* 筆記体にしたいなら別フォントに */
+}
+
+.explanation-text {
+  font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+  font-size: 1.2rem;
+  font-weight: normal; /* ← 太字を解除 */
+  line-height: 1.8;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: #000;
+}
+
+#recruit-message {
+  margin: 80px auto;
+  padding: 30px 20px 30px 25px; /* ← 左を少し小さくした */
+  max-width: 850px;
+  background-color: #e6f7fb;
+  border-left: 5px solid #005B9A;
+  border-radius: 8px;
+  box-sizing: border-box; /* ← これが重要！ */
+}
+
+#recruit-message h3 {
+  font-size: 1.8rem;
+  color: #005B9A;
+  margin-bottom: 20px;
+}
+
+.recruit-text {
+  font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #222;
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+/* ===== 業務内容 ===== */
+
+.business-section {
+  margin-bottom: 50px;
+}
+
+.business-section h3 {
+  font-size: 1.8rem;
+  color: #005B9A; /* 青っぽい色 */
+  margin-bottom: 20px;
+}
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 30px;
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10px;
+  width: 2px;
+  height: calc(100% - 15px); /* ← 最後の項目分だけ短くする */
+  background-color: #005B9A;
+}
+
+.timeline li {
+  position: relative;
+  margin-bottom: 15px;
+  padding-left: 10px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.timeline li:last-child {
+  margin-bottom: 0; /* 最後の余白をなくす */
+}
+
+.timeline li::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  width: 20px;
+  height: 2px;
+  background-color: #005B9A;
+  transform: translateY(-50%);
+}
+
+/* ===== 企業理念===== */
+
+/* 特別強調行（サイズそのまま、下のspanで拡大） */
+.highlight-line {
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+/* 陰徳（薄紫・明朝体・大きめ） */
+.intoku {
+  color: #b48bd4;
+  font-weight: bold;
+  font-size: 3rem;
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "游明朝", "MS Mincho", serif;
+}
+
+/* 明徳（黄色・明朝体・大きめ） */
+.meitoku {
+  color: #f5c400;
+  font-weight: bold;
+  font-size: 3rem;
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "游明朝", "MS Mincho", serif;
+}
+
+/* と（半分のサイズ） */
+.to {
+  font-size: 2rem; /* 陰徳の半分サイズ */
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "游明朝", "MS Mincho", serif;
+  font-weight: normal;
+  color: #000;
+  margin: 0 0.3rem; /* 少しスペースをあける */
+}
+
+/* 通常文 */
+.about-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  color: #222;
+}
+
+/* ===== 企業理念===== */
+
+.info-list {
+  margin: 40px 0;
+  padding: 0;
+}
+
+.info-list dt {
+  font-weight: bold;
+  margin-top: 10px;
+  color: #005B9A;
+  font-size: 1.1rem;
+}
+
+.info-list dd {
+  margin: 0 0 15px 0;
+  font-size: 1.5
+rem;
+  color: #333;
+  border-bottom: 1px solid #005B9A;
+  padding-bottom: 8px;
+  line-height: 1.6; /* 行間も調整 */
+}
+
+/* ===== お問い合わせ ===== */
+
+.contact-link {
+  color: #005B9A;
+  text-decoration: underline;
+}
+.contact-link:hover {
+  color: #003366;
+}
+
+/* ===== スプラッシュ動画 ===== */
+#splash {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #fff;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 1s ease;
+}
+
+#splash video {
+  width: 80vw;
+  max-width: none;
+  height: auto;
+}
+
+#splash.fadeout {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ===== ヘッダー ===== */
+#header {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center; 
+  justify-content: space-between;
+  padding: 10px 30px;
+  background: #fff;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+#header.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#logo img {
+  height: 60px;
+  width: auto;
+  cursor: pointer;  /* クリックでトップに戻る想定 */
+}
+
+/* ===== ナビ中央 ===== */
+#main-nav {
+  flex: 1;
+  text-align: center;
+}
+
+#main-nav ul {
+  display: inline-flex;
+  gap: 60px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#main-nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 1.3rem;
+  padding: 10px 20px;
+  transition: color 0.3s, background 0.3s;
+  border-radius: 4px;
+}
+
+#main-nav a:hover {
+  color: #fff;
+  background: #d42a6d;
+}
+
+/* ===== スライダー ===== */
+.slider {
+  margin-top: 100px;  /* ヘッダーと被らないように十分な余白 */
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  min-width: 100%;
+}
+
+.slider img {
+  width: 80%; 
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.prev {
+  left: 10px;
+}
+.next {
+  right: 10px;
+}
+
+.dots {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.dots span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 5px;
+  background: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dots span.active {
+  background: #333;
+}
+
+/* ===== スマホ対応 ===== */
+@media screen and (max-width: 768px) {
+  #header {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
+  }
+
+  #logo img {
+    height: 50px;
+  }
+
+  #main-nav {
+    flex: none;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  #main-nav ul {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #main-nav a {
+    font-size: 1.2rem;
+    padding: 8px 16px;
+  }
+
+  section {
+    padding: 60px 15px;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+}
